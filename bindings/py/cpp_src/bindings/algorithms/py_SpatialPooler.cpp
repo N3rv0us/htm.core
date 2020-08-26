@@ -273,6 +273,10 @@ Argument wrapAround boolean value that determines whether or not inputs
             return os.str();
         });
 
+        // compare two SpatialPoolers
+        py_SpatialPooler.def("__eq__", [](SpatialPooler &self, SpatialPooler &other){ return self == other; });
+        py_SpatialPooler.def("__ne__", [](SpatialPooler &self, SpatialPooler &other){ return self != other; });
+
         // compute
         py_SpatialPooler.def("compute", [](SpatialPooler& self, const SDR& input, const bool learn, SDR& output)
             { 

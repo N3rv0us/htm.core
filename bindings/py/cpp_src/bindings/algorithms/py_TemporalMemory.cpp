@@ -199,6 +199,9 @@ Argument anomalyMode (optional, default ANMode::RAW) selects mode for `TM.anomal
             self.load(inStream, JSON);
         });
 
+        // compare two TemporalMemories
+        py_HTM.def("__eq__", [](TemporalMemory &self, TemporalMemory &other){ return self == other; });
+        py_HTM.def("__ne__", [](TemporalMemory &self, TemporalMemory &other){ return self != other; });
 
         // pickle
         // https://github.com/pybind/pybind11/issues/1061
